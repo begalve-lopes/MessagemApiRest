@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Response;
+
+trait Messages {
+    public function success(String $message, String|int $status, $data = []){
+        return response()->json([
+            'message' => $message,
+            'status' => $status,
+            'data' => $data
+        ], $status);
+    }
+
+    public function error(String $message, String|int $status, array $data = []){
+        return response()->json([
+            'message' => $message,
+            'status' => $status,
+            'data' => $data
+        ], $status);
+    }
+}
